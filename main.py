@@ -13,19 +13,20 @@ headers = {
 }
 
 
-json_response = response.text
-data = json.loads(json_response)
 
-# Extract the 'voices' data
-voices = data.get('voices', [])
-
-# Convert the data into a DataFrame
-df = pd.DataFrame(voices)
 
 
 @app.route('/')
 def index():
     response = requests.get(url, headers=headers)
+    json_response = response.text
+    data = json.loads(json_response)
+
+    # Extract the 'voices' data
+    voices = data.get('voices', [])
+
+    # Convert the data into a DataFrame
+    df = pd.DataFrame(voices)
     # Parse the JSON response
     data = json.loads(json_response)
     voices = data.get('voices', [])
