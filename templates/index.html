@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Data</title>
+</head>
+
+<body>
+    <h1>Voice Data</h1>
+    <form action="/delete" method="POST">
+        <label for="voiceId">Enter Voice ID to Delete:</label>
+        <input type="text" id="voiceId" name="voiceId" required>
+        <button type="submit">Delete</button>
+    </form>
+
+    <table border="1">
+        <tr>
+            <th>Voice ID</th>
+            <th>Name</th>
+            <!-- Add more table headers based on your JSON structure -->
+        </tr>
+        {% for voice in voices %}
+        <tr>
+            <td>{{ voice.voice_id }}</td>
+            <td>{{ voice.name }}</td>
+            <!-- Add more table cells based on your JSON structure -->
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>
