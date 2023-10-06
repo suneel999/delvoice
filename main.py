@@ -12,7 +12,7 @@ headers = {
   "xi-api-key": "e327fdf320043677a512f1b0dade8403"
 }
 
-response = requests.get(url, headers=headers)
+
 json_response = response.text
 data = json.loads(json_response)
 
@@ -25,6 +25,7 @@ df = pd.DataFrame(voices)
 
 @app.route('/')
 def index():
+    response = requests.get(url, headers=headers)
     # Parse the JSON response
     data = json.loads(json_response)
     voices = data.get('voices', [])
